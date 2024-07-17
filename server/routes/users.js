@@ -1,32 +1,51 @@
 const express = require('express');
-const router = express.Router()
+const bcrypt = require('bcrypt');
+const { users } = require("../models");
+const { isValidPassword, isValidEmail, isValidUsername } = require("../helpers/Validation");
 
-const { users } = require("../models")
+const router = express.Router();
 
 router.get('/', async (req, res) => {
     return res.send(false);
 })
 
 router.post('/', async (request, response) => {
-    const {email, password} = request.body;
+    const {email, password, username} = request.body;
 
-    if (!String(email)
-        .toLowerCase()
-        .match( /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|.(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/)
-    ) {
-        return res.json({error: "Invalid Email"});
-    };
+    if (isValidEmail(email)) {
+        const  result = isValidEmail(email);
+        return response.json(result);
+    }
+
+    if (isValidPassword(password)) {
+        const  result = isValidPassword(password);
+        return response.json(result);
+    }
+
+    if (isValidUsername(username)) {
+        const  result = isValidUsername(username);
+        return response.json(result);
+    }
     
     try {
-        await users.create({
-            email: email,
-            password: password
-        });
+
+        bcrypt.hash(password, 14).then(async (hash) => {
+            try {
+                await users.create({
+                    email: email,
+                    password: hash,
+                    username: username,
+                });
+                return response.json({message: "User has been create"});
+            } catch (e) {
+                return response.json({error: e});
+            }
+        })
+        
     } catch(e) {
         return response.json({error: e});
     }
-
-    return response.json({message: "User has been Created"});
 })
 
 module.exports = router;
+

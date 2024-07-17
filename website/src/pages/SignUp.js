@@ -1,19 +1,20 @@
 import React from 'react';
 import axios from 'axios';
 
-import "../styles/Login.css";
+import "../styles/SignUp.css";
 
-function Login() {
+function SignUp() {
 
   async function onSignUP(e) {
     e.preventDefault();
 
-    console.log("E", e.target[0].value, e.target[1].value);
+    console.log("E", e.target[0].value, e.target[1].value, e.target[2].value);
 
     let response = await axios.post(
       "http://localhost:5555/users", {
         email: e.target[0].value,
-        password: e.target[1].value
+        password: e.target[1].value,
+        username: e.target[2].value
       }
     )
     console.log(response.data);
@@ -28,6 +29,8 @@ function Login() {
           <input type = "email" id = "Email"/>
           <p>Password: </p>
           <input type = "password" id = "Password"/>
+          <p>Username: </p>
+          <input type = "text" id = "Username"/>
         </div>
         <button type = "submit" id = "Button">SIGN UP</button>
       </form> 
@@ -35,4 +38,4 @@ function Login() {
   )
 }
 
-export default Login
+export default SignUp
