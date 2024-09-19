@@ -1,28 +1,23 @@
 import React from 'react';
 import axios from 'axios';
 
-import "../styles/SignUp.css";
+import "../../styles/Login.css";
 
-function SignUp() {
+import Validation from "../../services/Validation";
+function Login(props) {
 
   async function onSignUP(e) {
     e.preventDefault();
 
     console.log("E", e.target[0].value, e.target[1].value, e.target[2].value);
 
-    let response = await axios.post(
-      "http://localhost:5555/users", {
-        email: e.target[0].value,
-        password: e.target[1].value,
-        username: e.target[2].value
-      }
-    )
-    console.log(response.data);
+    if(Validation.isEmail)(e.target[0].value,e.target[1].value, e.target[2].value);
+
   }
 
   return (
     <div className = "signUpPage" >
-      <h1>FINSTAGRAM SIGN UP</h1>
+      <h1>FINSTAGRAM LOGIN</h1>
       <form className = "inputContainer" onSubmit={onSignUP}>
         <div>
           <p>Email: </p>
@@ -32,10 +27,11 @@ function SignUp() {
           <p>Username: </p>
           <input type = "text" id = "Username"/>
         </div>
-        <button type = "submit" id = "Button">SIGN UP</button>
+        <button type = "submit" id = "Button">LOGIN</button>
+        <button type = "button" onClick={() => props.changeToSignUp()}>Sign Up</button>
       </form> 
     </div>
   )
 }
 
-export default SignUp
+export default Login

@@ -14,16 +14,19 @@ router.post('/', async (request, response) => {
 
     if (isValidEmail(email)) {
         const  result = isValidEmail(email);
+        console.log("result email", result)
         return response.json(result);
     }
 
     if (isValidPassword(password)) {
         const  result = isValidPassword(password);
+        console.log("result p", result)
         return response.json(result);
     }
 
     if (isValidUsername(username)) {
         const  result = isValidUsername(username);
+        console.log("result u", result)
         return response.json(result);
     }
     

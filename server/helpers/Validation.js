@@ -20,28 +20,49 @@ const emailErrors = {
   };
 
 const Validation = {
-
+/*
     isValidEmail(email) {
-        return Object.entries(emailErrors).flatMap(([name, { test, regex, description }]) => {
-            const isValid = test ? test(email) : regex.test(email);
-            return isValid ? [] : { description, name };
-        });
+      return Object.entries(emailErrors).flatMap(([name, { test, regex, description }]) => {
+          const isValid = test ? test(email) : regex.test(email);
+          return isValid ? [] : { description, name };
+      });
     },
 
     isValidPassword(password) {
-        return Object.entries(passErrors).flatMap(([name, { test, regex, description }]) => {
-            const isValid = test ? test(password) : regex.test(password);
-            return isValid ? [] : { description, name };
-        });
+      return Object.entries(passErrors).flatMap(([name, { test, regex, description }]) => {
+          const isValid = test ? test(password) : regex.test(password);
+          return isValid ? [] : { description, name };
+      });
     },
 
     isValidUsername(username) {
-        return Object.entries(usernameErrors).flatMap(([name, { test, regex, description }]) => {
-          const isValid = test ? test(username) : regex.test(username);
-          return isValid ? [] : { description, name };
-        });
-      }
+      return Object.entries(usernameErrors).flatMap(([name, { test, regex, description }]) => {
+        const isValid = test ? test(username) : regex.test(username);
+        return isValid ? [] : { description, name };
+      });
+    }
+*/
 
+    isValidEmail(email) {
+      return Object.entries(emailErrors).flatMap(([name, { test, regex, description }]) => {
+          const isValid = test ? test(email) : regex.test(email);
+          return isValid ? [] : { description, name };
+      });
+    },
+
+    isValidPassword(password) {
+      return Object.entries(passErrors).flatMap(([name, { test, regex, description }]) => {
+          const isValid = test ? test(password) : regex.test(password);
+          return isValid ? [] : { description, name };
+      });
+    },
+
+    isValidUsername(username) {
+      return Object.entries(usernameErrors).flatMap(([name, { test, regex, description }]) => {
+        const isValid = test ? test(username) : regex.test(username);
+        return isValid ? [] : { description, name };
+      });
+    }
 }
   
  
