@@ -1,18 +1,78 @@
-.loginPage {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f2f5;
+    margin: 0;
+    padding: 0;
 }
 
-.inputContainer {
+.Login {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    gap: 50px; 
+    justify-content: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 100px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-h1 {
-    text-align: center;
-    font-size: 4rem;
+.Login h1 {
+    font-size: 2em;
+    margin: 0;
+    color: #333;
+}
+
+.Login h2 {
+    font-size: 1.5em;
+    margin: 10px 0 20px;
+    color: #555;
+}
+
+.Login input[type="text"],
+.Login input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.Login input[type="text"]:focus,
+.Login input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.Login button {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Login button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+.Login button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.Login button[type="button"] {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.Login button[type="button"]:hover {
+    background-color: #ddd;
 }

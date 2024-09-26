@@ -1,18 +1,80 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #e9ecef; /* Colore di sfondo neutro */
+    margin: 0;
+    padding: 0;
+}
+
 .signUpPage {
     display: flex;
     flex-direction: column;
+    align-items: center;
     justify-content: center;
+    width: 100%;
+    max-width: 800px; /* Larghezza massima del modulo */
+    margin: 100px auto; /* Margine superiore */
+    padding: 20px;
+    border: 1px solid #ccc; /* Bordo grigio chiaro */
+    border-radius: 10px; /* Angoli arrotondati */
+    background-color: white; /* Sfondo bianco per il modulo */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Ombra per profondità */
+}
+
+.signUpPage h1 {
+    font-size: 2.5em; /* Dimensione del titolo */
+    margin: 0 0 20px; /* Margine inferiore */
+    color: #333; /* Colore del testo */
+    text-align: center; /* Allinea il testo al centro */
 }
 
 .inputContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 50px; 
+    width: 80%; /* Larghezza al 100% */
 }
 
-h1 {
-    text-align: center;
-    font-size: 4rem;
+.inputContainer p {
+    margin: 10px 0 5px; /* Margini per le etichette */
+    color: #555; /* Colore grigio scuro */
+}
+
+.inputContainer input {
+    width: 100%; /* Larghezza al 100% */
+    padding: 12px; /* Spaziatura interna */
+    margin-bottom: 15px; /* Margine inferiore */
+    border: 1px solid #ccc; /* Bordo grigio chiaro */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 1em; /* Dimensione del testo */
+}
+
+.inputContainer input:focus {
+    border-color: #007bff; /* Colore bordo al focus */
+    outline: none; /* Rimuove il contorno di default */
+}
+
+.inputContainer button {
+    width: 100%; /* Larghezza al 100% */
+    padding: 12px; /* Spaziatura interna */
+    margin: 5px 0; /* Margini verticale */
+    border: none; /* Rimuove il bordo */
+    border-radius: 5px; /* Angoli arrotondati */
+    font-size: 1em; /* Dimensione del testo */
+    cursor: pointer; /* Cursor a mano */
+    transition: background-color 0.3s; /* Transizione per il colore di sfondo */
+}
+
+.inputContainer button[type="submit"] {
+    background-color: #28a745; /* Colore di sfondo per il pulsante di registrazione */
+    color: white; /* Colore del testo */
+}
+
+.inputContainer button[type="submit"]:hover {
+    background-color: #218838; /* Colore al passaggio del mouse */
+}
+
+.inputContainer button[type="button"] {
+    background-color: #f0f0f0; /* Colore di sfondo per il pulsante di login */
+    color: #333; /* Colore del testo */
+}
+
+.inputContainer button[type="button"]:hover {
+    background-color: #ddd; /* Colore al passaggio del mouse */
 }

@@ -1,54 +1,88 @@
-const express = require('express');
-const bcrypt = require('bcrypt');
-const { users } = require("../models");
-const { isValidPassword, isValidEmail, isValidUsername } = require("../helpers/Validation");
+const express = require("express");
+const bcrypt = require("bcrypt");
+const { users } = require("../models")
+const Validation = require("../helpers/Validation");
 
-const router = express.Router();
+const router=express.Router()
 
-router.get('/', async (req, res) => {
+router.get('/', async(req,res)=>{
     return res.send(false);
 })
 
-router.post('/', async (request, response) => {
-    const {email, password, username} = request.body;
+router.post('/',async (req,res)=>{
 
-    if (isValidEmail(email)) {
-        const  result = isValidEmail(email);
-        console.log("result email", result)
-        return response.json(result);
-    }
+    const {email,username,password}= req.body;
 
-    if (isValidPassword(password)) {
-        const  result = isValidPassword(password);
-        console.log("result p", result)
-        return response.json(result);
-    }
-
-    if (isValidUsername(username)) {
-        const  result = isValidUsername(username);
-        console.log("result u", result)
-        return response.json(result);
-    }
+    if(email && !Validation.isValidEmail(email)){
+        return res.json({error:"Invalid Email"});
+    };
     
-    try {
+    if(username && !Validation.isValidUsername(username)){
+    return res.json({error:"Invalid Username"});
+    };
 
-        bcrypt.hash(password, 14).then(async (hash) => {
-            try {
+    if(!Validation.isValidPassword(password)){
+        return res.json({error:"Invalid Password"});
+    };
+
+
+    try{
+        bcrypt.hash(password,10).then(async (hash) => {
+           try{
                 await users.create({
                     email: email,
-                    password: hash,
                     username: username,
-                });
-                return response.json({message: "User has been create"});
-            } catch (e) {
-                return response.json({error: e});
-            }
-        })
+                    password: hash
+            });
+            return res.json({message: "User has been CREATED"});
+        } catch(e) {
+            return res.json({ error: e});
+        }
+    })
         
+            
     } catch(e) {
-        return response.json({error: e});
+        return res.json({ error: e});
     }
+    
 })
 
-module.exports = router;
+router.post("/login",async (req,res)=>{
 
+    const {email,password,username}= req.body;
+
+    if(!email && !username){
+        return res.json({ error: "Invalid Input"});
+    };
+
+    if(email && !Validation.isValidEmail(email)){
+        return res.json({error:"Invalid Email"});
+   };
+
+    if(username && !Validation.isValidUsername(username)){
+    return res.json({error:"Invalid Username"});
+ };
+
+let user;
+if(username) {
+    user=await users.findOne({where: {username:username}})
+} else if(email){
+    user= await users.findOne({where: {email:email}})
+}
+if(!user){
+    return res.json({error: "Account does not exist"})
+}
+
+// match password;
+
+    bcrypt.compare(password, user.password).then(async(match) => {
+    
+        if(!match) {
+            return res.json({ error: "Wrong Password"})
+        }
+        return res.json({login: true});
+    })
+})
+
+
+module.exports = router;

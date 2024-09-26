@@ -1,37 +1,61 @@
-import React from 'react';
-import axios from 'axios';
+import React, {useContext} from 'react'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
+import { AuthContext } from "../../services/AuthContext";
+import "../../styles/Login.css"
+import Validation from '../../services/Validation'
 
-import "../../styles/Login.css";
 
-import Validation from "../../services/Validation";
 function Login(props) {
 
-  async function onSignUP(e) {
-    e.preventDefault();
+    const navigates = useNavigate();
+    const {setLogin} = useContext(AuthContext);
 
-    console.log("E", e.target[0].value, e.target[1].value, e.target[2].value);
+     async function onLogin(e)  {
+    
+      e.preventDefault();
 
-    if(Validation.isEmail)(e.target[0].value,e.target[1].value, e.target[2].value);
+      console.log("E", e.target[0].value , e.target[1].value);
 
-  }
+      if(!e.target[0].value){
+        console.log("put your username")
+        return;
+      }
 
-  return (
-    <div className = "signUpPage" >
-      <h1>FINSTAGRAM LOGIN</h1>
-      <form className = "inputContainer" onSubmit={onSignUP}>
-        <div>
-          <p>Email: </p>
-          <input type = "email" id = "Email"/>
-          <p>Password: </p>
-          <input type = "password" id = "Password"/>
-          <p>Username: </p>
-          <input type = "text" id = "Username"/>
-        </div>
-        <button type = "submit" id = "Button">LOGIN</button>
-        <button type = "button" onClick={() => props.changeToSignUp()}>Sign Up</button>
-      </form> 
-    </div>
-  )
+      if(!e.target[1].value){
+        console.log("put your password")
+        return;
+      }
+
+      let response = await axios.post("http://localhost:5555/users/login",
+        {
+          ...(Validation.isEmail(e.target[0].value) ? {email:e.target[0].value} : {username: e.target[0].value}),
+          password: e.target[1].value
+        }
+      )
+
+      if(response?.data?.error) {
+        console.log("Error", response.data.error);
+      } else if(response?.data?.login) {
+        setLogin(true)
+        navigates("/home");
+        localStorage.setItem("login", true)
+      }
+     
+    }
+    return (
+       <form className="Login" onSubmit={onLogin}>
+            <h1> FINSTAGRAM 
+            </h1>
+            <h2> LOGIN </h2>
+             <input type="text" placeholder="Email o Username"/>
+             <input type="password" placeholder="Password" />
+            <button type="submit"> LOGIN </button>
+            <button type="button"
+            onClick={() => props.changeToSignUp()}
+            >SignUp</button>
+        </form>
+    )
 }
 
 export default Login

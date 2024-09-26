@@ -1,0 +1,65 @@
+/* Home.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Imposta l'altezza della viewport */
+    display: flex; /* Utilizza Flexbox */
+    justify-content: center; /* Centra orizzontalmente */
+    align-items: center; /* Centra verticalmente */
+    flex-direction: column; /* Disposizione verticale */
+}
+
+.container {
+    max-width: 600px;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centra il testo all'interno del contenitore */
+}
+
+h1 {
+    color: #333;
+    font-size: 2.5rem; /* Dimensione del carattere */
+    margin-bottom: 20px; /* Margine inferiore */
+    margin-top: -40px; /* Sposta il titolo più in alto */
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra verticalmente il contenuto */
+    align-items: center; /* Centra orizzontalmente */
+    height: 100%; /* Assicura che prenda tutta l'altezza disponibile */
+}
+
+p {
+    font-size: 18px;
+    text-align: center;
+    color: #666;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:focus {
+    outline: none;
+}
