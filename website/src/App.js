@@ -12,6 +12,7 @@ import { useState } from 'react';
 import { AuthContext } from './services/AuthContext';
 import { PrivateRoute } from './services/PrivateRoute';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 
 
@@ -23,9 +24,34 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLogin(localStorage.getItem("login"));
-    setLoading(false);
+    if(localStorage.getItem("AuthToken")){
+      checkAuth(); 
+    } else {
+      setLoading(false);
+    }
+    
   }, [])
+
+  
+  async function checkAuth() {
+    let response = await axios.get("http://localhost:5555/users/auth",
+      {
+        headers: {
+          authToken: localStorage.getItem("AuthToken")
+        }
+      }
+    )
+
+    if(response?.data?.error) {
+      console.log(response.data.error)
+    } else if (response?.data?.user){
+      setLogin(response?.data?.user)
+    }
+
+    setLoading(false);
+  }
+
+ 
 
   if(loading) {
     return <></>

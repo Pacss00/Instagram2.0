@@ -5,8 +5,15 @@ import "../styles/Home.css";
 
 function Home() {
 
-    const {login} = useContext(AuthContext);
+    const {login, setLogin} = useContext(AuthContext);
     const navigates = useNavigate();
+
+    const onLogout = () => {
+        localStorage.removeItem("AuthToken")
+        navigates("/entry");
+        setLogin(false)
+
+    }
 
     return(
         <div>
@@ -16,9 +23,7 @@ function Home() {
                     {login ? " Logged In" : "Logged Out"}
                 </p>
                 <button type="button"
-                onClick={() => {localStorage.removeItem("login"); 
-                    navigates("/entry");
-                }}
+                onClick={onLogout}
                 >LogOut</button>
             </div>
             

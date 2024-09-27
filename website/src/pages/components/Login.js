@@ -36,10 +36,15 @@ function Login(props) {
 
       if(response?.data?.error) {
         console.log("Error", response.data.error);
-      } else if(response?.data?.login) {
-        setLogin(true)
+      } else if(response?.data?.status) {
+        setLogin({
+          username: response?.data?.username,
+          email: response?.data?.email,
+          staus: response?.data?.status,
+        })
+        
+        localStorage.setItem("AuthToken", response?.data?.authToken)
         navigates("/home");
-        localStorage.setItem("login", true)
       }
      
     }
