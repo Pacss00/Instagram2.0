@@ -1,0 +1,62 @@
+/* Contenitore del modulo di creazione post */
+.PostForm {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+/* Stile per il titolo del modulo */
+h2 {
+    font-size: 2rem;
+    color: #6bcf63; /* Verde lime */
+    margin-bottom: 20px;
+}
+
+/* Stile per gli input */
+input[type="text"],
+textarea {
+    width: calc(100% - 22px); /* Larghezza al 100% con padding */
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-size: 1rem;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="text"]:focus,
+textarea:focus {
+    border-color: #6bcf63; /* Verde lime */
+    box-shadow: 0 0 5px rgba(107, 207, 99, 0.5); /* Ombra al focus */
+    outline: none;
+}
+
+/* Stile per il pulsante di pubblicazione */
+button#Publish {
+    background-color: #6bcf63; /* Verde lime */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 10px;
+    width: 100%; /* Larghezza al 100% */
+}
+
+button#Publish:hover {
+    background-color: #5aa652; /* Verde scuro */
+    transform: translateY(-2px); /* Leggera elevazione al passaggio del mouse */
+}
+
+/* Messaggi di errore (opzionale) */
+.error-message {
+    color: red;
+    margin-top: 10px;
+    font-size: 0.9rem;
+}

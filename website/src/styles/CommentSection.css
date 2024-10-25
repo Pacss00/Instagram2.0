@@ -1,0 +1,26 @@
+.CommentSection {
+    background-color: #f9f9f9; /* Sfondo chiaro per la sezione commenti */
+    border: 1px solid #ddd; /* Bordo grigio chiaro */
+    border-radius: 8px; /* Angoli arrotondati */
+    padding: 20px; /* Padding interno */
+    margin: 20px 0; /* Margine verticale */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombra leggera */
+}
+
+.CommentSection h3 {
+    font-size: 24px; /* Dimensione del font per il titolo */
+    margin-bottom: 15px; /* Margine inferiore */
+    color: #333; /* Colore del testo */
+}
+
+.loading {
+    font-size: 18px; /* Dimensione del font per il caricamento */
+    color: #007bff; /* Colore blu */
+    text-align: center; /* Allineamento al centro */
+}
+
+.error {
+    font-size: 18px; /* Dimensione del font per l'errore */
+    color: #dc3545; /* Colore rosso */
+    text-align: center; /* Allineamento al centro */
+}

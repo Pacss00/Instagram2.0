@@ -1,48 +1,82 @@
+/* Impostazioni di base */
 body {
-  font-family: 'Arial', sans-serif;
   margin: 0;
-  padding: 0;
-  background-color: #f0f2f5; /* Colore di sfondo neutro per l'intera app */
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #f0f2f5, #d9e4f5);
+  color: #333;
 }
 
-.App {
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* Centra il contenuto orizzontalmente */
-  justify-content: center; /* Centra verticalmente se necessario */
-  min-height: 100vh; /* Altezze minime per il contenitore principale */
-}
-
-header {
-  width: 100%;
+/* Contenitore della pagina di login e home */
+.container {
+  max-width: 1000px;
+  margin: 50px auto;
   padding: 20px;
-  background-color: #007bff; /* Colore di sfondo dell'intestazione */
-  color: white; /* Colore del testo dell'intestazione */
-  text-align: center; /* Allinea il testo al centro */
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
+/* Stile per il titolo principale */
 h1 {
-  margin: 0; /* Rimuove margini predefiniti */
+  font-size: 2.5rem;
+  color: #6bcf63; /* Verde lime */
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
 }
 
-nav {
-  margin-top: 10px; /* Margine sopra la nav */
+/* Stile per il sottotitolo */
+h2 {
+  font-size: 1.8rem;
+  color: #555;
+  margin-bottom: 20px;
 }
 
-nav a {
-  color: white; /* Colore dei link nella nav */
-  text-decoration: none; /* Rimuove la sottolineatura */
-  margin: 0 15px; /* Margini laterali per i link */
+/* Stile per gli input */
+input {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+  width: calc(100% - 24px); /* Larghezza al 100% con padding e bordi */
 }
 
-nav a:hover {
-  text-decoration: underline; /* Sottolinea il link al passaggio del mouse */
+input:focus {
+  border-color: #6bcf63; /* Verde lime */
+  box-shadow: 0 0 5px rgba(107, 207, 99, 0.5); /* Ombra al focus */
+  outline: none;
 }
 
-footer {
-  margin-top: auto; /* Spinge il footer in fondo alla pagina */
-  padding: 10px;
-  background-color: #007bff; /* Colore di sfondo del footer */
-  color: white; /* Colore del testo del footer */
-  text-align: center; /* Allinea il testo al centro */
-} 
+/* Messaggi di errore */
+.error {
+  color: red;
+  margin: 10px 0;
+  transition: opacity 0.3s;
+}
+
+/* Loader */
+.loading {
+  font-size: 1.5rem;
+  color: #555;
+}
+
+/* Media query per il responsive design */
+@media (max-width: 600px) {
+  .container {
+      padding: 15px;
+  }
+
+  h1 {
+      font-size: 2rem;
+  }
+
+  h2 {
+      font-size: 1.5rem;
+  }
+
+  input, button {
+      font-size: 1rem;
+  }
+}

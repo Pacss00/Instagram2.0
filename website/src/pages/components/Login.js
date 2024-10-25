@@ -49,17 +49,14 @@ function Login(props) {
      
     }
     return (
-       <form className="Login" onSubmit={onLogin}>
-            <h1> FINSTAGRAM 
-            </h1>
+      <form className="Login" onSubmit={onLogin}>
+            <h1> FINSTAGRAM </h1>
             <h2> LOGIN </h2>
              <input type="text" placeholder="Email o Username"/>
              <input type="password" placeholder="Password" />
-            <button type="submit"> LOGIN </button>
-            <button type="button"
-            onClick={() => props.changeToSignUp()}
-            >SignUp</button>
-        </form>
+            <button type="submit" className="loginButton"> LOGIN </button>
+            <button type="button" className='signUpLoginButton' onClick={() => props.changeToSignUp()}>SignUp</button>
+      </form>
     )
 }
 

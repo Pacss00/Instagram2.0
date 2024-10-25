@@ -87,6 +87,7 @@ if(!user){
             {
                 username: user.username,
                 email: user.email,
+                id: user.id,
                 status: true,
             }
         , process.env.AUTH_SECRET)
@@ -95,6 +96,7 @@ if(!user){
             authToken: authToken,
             username: user.username,
             email: user.email,
+            id: user.id,
             status: true
         });
 

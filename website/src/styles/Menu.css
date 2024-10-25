@@ -1,0 +1,106 @@
+.Menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 2000px; /* Menu che si estende su tutta la larghezza della pagina */
+  display: flex;
+  justify-content: center; /* Centra i pulsanti orizzontalmente */
+  align-items: center;
+  background-color: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px 8px 0 0; /* Angoli arrotondati solo sopra */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 0px;
+}
+
+.menuButton {
+  align-self: center;
+  margin: 0 10px; /* Spaziatura tra i pulsanti */
+  padding: 10px 20px;
+  font-size: 16px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.menuButton:hover {
+  background-color:#0056b3;
+  color: white; 
+  transform: translateY(-2px); /* Leggera elevazione al passaggio del mouse */
+}
+
+.menuButtonWithImg {
+  position: absolute;
+  height: 38.4px;
+  left: 0.2vw;
+  bottom: 0.6vw;
+  display: flex;
+  align-items: center;
+  margin: 0 10px; /* Spaziatura tra i pulsanti */
+  padding-top: 5px;
+  padding-bottom: 0px;
+  color: white;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.menuButtonWithImg:hover {
+  display: flex;
+  align-items: center;
+  margin: 0 10px; /* Spaziatura tra i pulsanti */
+  padding-top: 5px;
+  padding-bottom: 0px;
+  color: white;
+  background-color:#0056b3;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  transform: translateY(-2px); /* Leggera elevazione al passaggio del mouse */
+  
+}
+
+.buttonMenuImg {
+  height: 30px;
+  width: 30px;
+  padding: 0px;
+}
+
+.menuButtonLogOut {
+  position: absolute;
+  height: 38.4px;
+  right: 1.0vw;
+  bottom: 0.6vw;
+  display: flex;
+  align-items: center;
+  margin: 0 10px; /* Spaziatura tra i pulsanti */
+  padding-bottom: 0px;
+  color: white;
+  background-color: #ff4757;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.menuButtonLogOut:hover {
+  display: flex;
+  align-items: center;
+  margin: 0 10px; /* Spaziatura tra i pulsanti */
+  padding-bottom: 0px;
+  color: white;
+  background-color: #e84118;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s;
+  transform: translateY(-2px); /* Leggera elevazione al passaggio del mouse */
+  
+}

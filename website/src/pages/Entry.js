@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import Login from "./components/Login"
+import CreatePostForm from './components/CreatePostForm';
 import SignUp from "./components/SignUp"
 
     function Entry() {

@@ -12,6 +12,10 @@ import { useState } from 'react';
 import { AuthContext } from './services/AuthContext';
 import { PrivateRoute } from './services/PrivateRoute';
 import { useEffect } from 'react';
+import UserProfile from './pages/UserProfile';
+import { toast } from "react-toastify"
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import axios from 'axios';
 
 
@@ -58,17 +62,24 @@ function App() {
   }
 
   return (
-    <AuthContext.Provider value={{login, setLogin}}>
-      <Router>
-        <Routes>
-          <Route path="/entry" element = {<Entry />} />
-          <Route path="/home" element = {<PrivateRoute />} >
-            <Route path="/home" element = {<Home />} />
-          </Route>
-          <Route path="*" element= { <Navigate to={ login ? "/home" : "/entry"} />}/>
-        </Routes>
-      </Router>
-    </AuthContext.Provider>
+    <>
+      <AuthContext.Provider value={{login, setLogin}}>
+        <Router>
+          <Routes>
+            <Route path="/entry" element = {<Entry />} />
+            <Route path="/home" element = {<PrivateRoute />} >
+              <Route path="/home" element = {<Home />} />
+            </Route>
+            <Route path="/user/:username" element = {<PrivateRoute />} >
+              <Route path="/user/:username" element = {<UserProfile />} />
+            </Route>
+            <Route path="*" element= { <Navigate to={ login ? "/home" : "/entry"} />}/>
+          </Routes>
+        </Router>
+      </AuthContext.Provider>
+      <ToastContainer position='top-right'/>
+    </>
+    
   );
 }
 

@@ -1,0 +1,27 @@
+.post {
+  border: 1px solid #ccc; /* Bordo grigio chiaro */
+  border-radius: 8px; /* Angoli arrotondati */
+  padding: 16px; /* Spaziatura interna */
+  margin: 16px 0; /* Margine verticale */
+  background-color: #cffdc6; /* Colore di sfondo chiaro */
+  transition: box-shadow 0.3s; /* Transizione per l'ombreggiatura */
+}
+
+.post:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombreggiatura al passaggio del mouse */
+}
+
+.post h3 {
+  margin: 0 0 8px; /* Margine per il titolo */
+  font-size: 1.5em; /* Dimensione del font */
+  color: #333; /* Colore del testo */
+}
+
+.post p {
+  margin: 0; /* Rimuovi margini */
+  color: #555; /* Colore del testo descrittivo */
+}
+
+.deleteButton {
+  
+};

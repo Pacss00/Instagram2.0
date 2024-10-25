@@ -23,7 +23,8 @@ function SignUp(props) {
 
   return (
     <div className = "signUpPage" >
-      <h1>FINSTAGRAM SIGN UP</h1>
+      <h1>FINSTAGRAM </h1>
+      <h2> SIGN UP</h2>
       <form className = "inputContainer" onSubmit={onSignUP}>
         <div>
           <p>Email: </p>
@@ -33,8 +34,8 @@ function SignUp(props) {
           <p>Username: </p>
           <input type = "text" id = "Username"/>
         </div>
-        <button type = "submit" id = "Button">SIGN UP</button>
-        <button type = "button" onClick={() => props.changeToLogin()}>Log In</button>
+        <button type = "submit" className='signUpButton'>SIGN UP</button>
+        <button type = "button" className='loginSignUpButton'onClick={() => props.changeToLogin()}>Log In</button>
       </form> 
     </div>
   )
