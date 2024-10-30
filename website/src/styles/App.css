@@ -6,7 +6,6 @@ body {
   color: #333;
 }
 
-/* Contenitore della pagina di login e home */
 .container {
   max-width: 1000px;
   margin: 50px auto;
