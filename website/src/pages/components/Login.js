@@ -27,7 +27,7 @@ function Login(props) {
         return;
       }
 
-      let response = await axios.post("http://localhost:5555/users/login",
+      let response = await axios.post(process.env.REACT_APP_SERVER_URL + "/users/login",
         {
           ...(Validation.isEmail(e.target[0].value) ? {email:e.target[0].value} : {username: e.target[0].value}),
           password: e.target[1].value

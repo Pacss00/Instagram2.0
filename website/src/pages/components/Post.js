@@ -45,7 +45,7 @@ function Post(props) {
 
   const onDelete = async () => {
     try {
-      await axios.delete("http://localhost:5555/posts/" + props?.post?.id, {
+      await axios.delete(process.env.REACT_APP_SERVER_URL + "/posts/" + props?.post?.id, {
         headers: {
           authToken: localStorage.getItem("AuthToken"),
         },

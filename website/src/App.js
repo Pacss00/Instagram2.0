@@ -38,7 +38,7 @@ function App() {
 
   
   async function checkAuth() {
-    let response = await axios.get("http://localhost:5555/users/auth",
+    let response = await axios.get( process.env.REACT_APP_SERVER_URL + "/users/auth",
       {
         headers: {
           authToken: localStorage.getItem("AuthToken")

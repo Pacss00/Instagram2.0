@@ -29,7 +29,7 @@ function Comment(props) {
 
   const onDeleteComment = async () => {
     try {
-      await axios.delete("http://localhost:5555/postComments/" + props?.comment?.id, {
+      await axios.delete(process.env.REACT_APP_SERVER_URL + "/postComments/" + props?.comment?.id, {
         headers: {
           authToken: localStorage.getItem("AuthToken"),
         },

@@ -26,7 +26,7 @@ function Like(props) {
 
   const changeLike = async () => {
     try {
-      await axios.post("http://localhost:5555/postLikes", {
+      await axios.post(process.env.REACT_APP_SERVER_URL + "/postLikes", {
             like: !like,
             postId: props?.postId
         },

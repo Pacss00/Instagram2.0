@@ -12,7 +12,7 @@ function CreateCommentForm(props) {
     const onCreateComment = async (e) => {
         e.preventDefault();
 
-        let response = await axios.post("http://localhost:5555/postComments",
+        let response = await axios.post(process.env.REACT_APP_SERVER_URL + "/postComments",
             {
                 title: title,
                 comment: comment,

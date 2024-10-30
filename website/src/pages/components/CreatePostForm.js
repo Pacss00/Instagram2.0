@@ -10,7 +10,7 @@ function CreatePostForm() {
         e.preventDefault();
 
 
-        let response = await axios.post("http://localhost:5555/posts",
+        let response = await axios.post(process.env.REACT_APP_SERVER_URL + "/posts",
             {
                 title: e.target[0].value,
                 description: e.target[1].value
@@ -29,7 +29,7 @@ function CreatePostForm() {
             const data = new FormData();
             data.append('file', image)
 
-            let imageResponse = await axios.post("http://localhost:5555/images/upload/" + response?.data?.id,
+            let imageResponse = await axios.post(process.env.REACT_APP_SERVER_URL + "/images/upload/" + response?.data?.id,
                 data,
                 {
                     headers: {

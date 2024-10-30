@@ -12,7 +12,7 @@ function SignUp(props) {
     console.log("E", e.target[0].value, e.target[1].value, e.target[2].value);
 
     let response = await axios.post(
-      "http://localhost:5555/users", {
+      process.env.REACT_APP_SERVER_URL + "/users", {
         email: e.target[0].value,
         password: e.target[1].value,
         username: e.target[2].value

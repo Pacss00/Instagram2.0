@@ -19,7 +19,7 @@ function CommentsSection(props) {
 
   const getAllComments = async () => {
 
-    let response = await axios.get("http://localhost:5555/postComments/" + props?.postId , { headers: { authToken: localStorage.getItem("AuthToken")}})
+    let response = await axios.get(process.env.REACT_APP_SERVER_URL + "/postComments/" + props?.postId , { headers: { authToken: localStorage.getItem("AuthToken")}})
 
     console.log("res", response?.data);
 

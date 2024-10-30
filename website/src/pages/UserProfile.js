@@ -17,7 +17,7 @@ function UserProfile(props) {
     }, [username])
 
     const fetchData = async () => {
-        let response = await axios.get("http://localhost:5555/posts/" + username,
+        let response = await axios.get( process.env.REACT_APP_SERVER_URL + "/posts/" + username,
         {
             headers: {
             authToken: localStorage.getItem("AuthToken")
