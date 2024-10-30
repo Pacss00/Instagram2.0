@@ -24,4 +24,21 @@
     })
  }) 
 
- module.exports = {upload}
+ const getImage = async (key, res) => {
+    return await s3.getObject(
+        {
+            Bucket: process.env.S3_BUCKET,
+            Key: key
+        },
+        (err, data) => {
+            if(err){
+                console.log(err);
+                return res.json({ error: "Project Image Not Found"})
+            }
+            res.set("Content-Type", data.contentType)
+            return res.send(data.Body);     
+        }
+    )
+ }
+
+ module.exports = {upload, getImage}

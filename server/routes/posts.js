@@ -1,20 +1,20 @@
 const express = require("express")
 const router = express.Router();
 const {validateToken} = require("../middlewares/Authentication")
-const {posts, users, postLikes} = require("../models")
+const {posts, users, postLikes, postImages} = require("../models")
 const { Op } = require('sequelize')
 
 
 router.post("/", validateToken, async (req, res) => {
     const {title, description} = req.body;
-    await posts.create({
+    let post = await posts.create({
         title: title,
         description: description,
         userId: req.user.id,
         status: "active"
     })
 
-    return res.json({ message: "Post has been CREATED"})
+    return res.json(post)
 })
 
 router.get("/", validateToken, async (req, res) => {
@@ -31,6 +31,9 @@ router.get("/", validateToken, async (req, res) => {
             },
             {
                 model: postLikes, 
+            },
+            {
+                model: postImages, 
             },
         ]
     })

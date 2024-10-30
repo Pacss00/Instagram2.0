@@ -1,9 +1,10 @@
 /* Stile generale per la pagina Home */
 .Home {
+
     max-width: 800px;
     margin: 50px auto;
     padding: 20px;
-    background: white;
+    background-image: url("../img/mare.jpg");
     border-radius: 10px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -20,7 +21,7 @@ h1 {
 /* Sottotitolo */
 h2 {
     font-size: 1.8rem;
-    color: #555;
+    color: #ffffff;
     margin-bottom: 20px;
 }
 

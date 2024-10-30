@@ -24,6 +24,9 @@ module.exports = (sequelize, DataTypes) => {
 
         posts.hasMany(models.postComments, {foreignKey: 'userId'});
         models.postComments.belongsTo(posts, {foreignKey: 'userId'});
+
+        posts.hasOne(models.postImages, {foreignKey: 'postId'});
+        models.postImages.belongsTo(posts, {foreignKey: 'postId'});
     }
 
     return posts;

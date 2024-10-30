@@ -1,27 +1,118 @@
-.post {
-  border: 1px solid #ccc; /* Bordo grigio chiaro */
-  border-radius: 8px; /* Angoli arrotondati */
-  padding: 16px; /* Spaziatura interna */
-  margin: 16px 0; /* Margine verticale */
-  background-color: #cffdc6; /* Colore di sfondo chiaro */
-  transition: box-shadow 0.3s; /* Transizione per l'ombreggiatura */
+/* Stile generale per il post */
+.postdiv {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  transition: transform 0.2s;
 }
 
-.post:hover {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Ombreggiatura al passaggio del mouse */
+/* Titolo del post */
+.posth3 {
+  color: #333;
+  font-size: 1.8em;
+  margin-bottom: 10px;
 }
 
-.post h3 {
-  margin: 0 0 8px; /* Margine per il titolo */
-  font-size: 1.5em; /* Dimensione del font */
-  color: #333; /* Colore del testo */
+/* Immagine del post */
+.postimg {
+  width: 100%;
+  border-radius: 30px;
+  margin-bottom: 10px;
 }
 
-.post p {
-  margin: 0; /* Rimuovi margini */
-  color: #555; /* Colore del testo descrittivo */
+/* Descrizione del post */
+.postdescriptiondiv {
+  font-size: 1em;
+  color: #555;
+  margin-bottom: 15px;
 }
 
+.ButtonPost {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px;
+}
+
+.ButtonPost:hover {
+  background-color: #45a049;
+}
+
+.likeButton {
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+/* Pulsante per il nome utente */
+.usernameButton {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 10px;
+}
+
+.usernameButton:hover {
+  background-color: #0056b3;
+}
+
+/* Data del post */
+.postdatadiv {
+  font-size: 0.9em;
+  color: #777;
+  margin-top: 10px;
+}
+
+/* Pulsante di eliminazione */
 .deleteButton {
-  
-};
+  background-color: #d9534f;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.deleteButton:hover {
+  background-color: #c9302c;
+}
+
+/* Sezione dei commenti */
+.commentsSection {
+  margin-top: 15px;
+}
+
+/* Stile per la lista dei commenti */
+.commentsList {
+  list-style: none;
+  padding: 0;
+}
+
+/* Stile per ogni commento */
+.commentItem {
+  background-color: #f9f9f9;
+  border: 1px solid #e1e1e1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px 0;
+  transition: background-color 0.3s;
+}
+
+.commentItem:hover {
+  background-color: #f1f1f1;
+}

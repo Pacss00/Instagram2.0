@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { AuthContext } from '../../services/AuthContext';
-
+import "../../styles/Like.css";
 import axios from 'axios';
 import { toast } from "react-toastify";
 import LikeInactive from "../../assets/Like-Inactive.svg"
@@ -46,7 +46,7 @@ function Like(props) {
 
   return (
     <div>
-        <button onClick={() =>changeLike()}><img src={like ? LikeActive : LikeInactive} alt={"Like"}/></button>
+        <button className="likeButton" onClick={() =>changeLike()}><img className="likeImg" src={like ? LikeActive : LikeInactive} alt={"Like"}/></button>
         <p>Likes: {nLike}</p>
     </div>
   )

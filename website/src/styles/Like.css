@@ -1,0 +1,12 @@
+.likeButton {
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+
+  .likeImg{
+    height: 30px; 
+    width: 30px;
+  }

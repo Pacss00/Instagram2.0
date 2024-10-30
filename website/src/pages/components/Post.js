@@ -5,6 +5,7 @@ import { AuthContext } from '../../services/AuthContext';
 import { toast } from "react-toastify";
 import { useNavigate } from 'react-router-dom';
 import DateService from '../../services/DateService';
+import Images from '../../services/Images';
 import Like from './Like';
 import CommentsSection from './CommentsSection';
 
@@ -14,6 +15,7 @@ function Post(props) {
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
   const [toggle, setToggle] = useState(false);
+  const [image, setImage] = useState(null);
 
   useEffect(() => {
     if (props?.username) {
@@ -21,7 +23,25 @@ function Post(props) {
     } else if (props?.post?.user?.username) {
       setUsername(props?.post?.user?.username);
     }
+
+    
+    if(props?.post?.postImage?.key) {
+      onGetImage(props?.post?.postImage?.key);
+      
+      //console.log('image', props?.post?.postImage?.key)
+    }
+
   }, [props]);
+
+  const onGetImage = async (key) => {
+    let getI = await Images.getPostImage(key);
+    const imageBlob = new Blob([getI])
+    console.log("get", imageBlob)
+    setImage(imageBlob); 
+    
+
+    //setImage(await Images.getPostImage(key))
+  }
 
   const onDelete = async () => {
     try {
@@ -38,10 +58,17 @@ function Post(props) {
   };
 
   return (
-    <div className='post' id={props?.id}>
-      <h3>{props?.post?.title}</h3>
-      <div>{props?.post?.description}</div>
-      <Like postId={props?.post?.id} likes={props?.post?.postLikes}/>
+    <div className='postdiv' id={props?.id}>
+      <h3 className='posth3' >{props?.post?.title}</h3>
+
+      {image ?
+        <img className='postimg' src={URL.createObjectURL(image)} alt="Post Image"/>
+        :
+        <>Loading...</>
+
+      }
+      <div className='postdescriptiondiv' >{props?.post?.description}</div>
+      <Like className='likeButton' postId={props?.post?.id} likes={props?.post?.postLikes}/>
       <button type="button" className="ButtonPost" onClick={() => {setToggle(!toggle)}}>
       Comments
       </button> {
@@ -49,10 +76,10 @@ function Post(props) {
       }
       
       <div>
-        <button onClick={() =>navigate('/user/' + username)}>{username}</button>
+        <button className='usernameButton' onClick={() =>navigate('/user/' + username)}>{username}</button>
       </div>
-      <div>{DateService.formatDate(props?.post?.createdAt)}</div>
-      <p>
+      <div className='postdatadiv'>{DateService.formatDate(props?.post?.createdAt)}</div>
+      <p className='buttonDelete'>
         {login.username === username ? 
           <button className='deleteButton' onClick={onDelete}>Elimina</button> 
           : null}

@@ -20,7 +20,7 @@ function CreatePostForm() {
                     authToken: localStorage.getItem("AuthToken")
                 }
             }
-            
+
         )
 
         if(response?.data) {
@@ -29,7 +29,7 @@ function CreatePostForm() {
             const data = new FormData();
             data.append('file', image)
 
-            let imageResponse = await axios.post("http://localhost:5555/images/upload",
+            let imageResponse = await axios.post("http://localhost:5555/images/upload/" + response?.data?.id,
                 data,
                 {
                     headers: {
@@ -38,7 +38,6 @@ function CreatePostForm() {
                 }
             )
         }
-
         toast.success("Post Created")
     }
 
